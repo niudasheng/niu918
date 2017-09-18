@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vem.dao.CommodityMapper">
+  <resultMap id="BaseResultCommodityMap" type="com.vem.bean.Commodity">
+    <id column="cd_id" jdbcType="INTEGER" property="cdId" />
+    <result column="cd_code" jdbcType="VARCHAR" property="cdCode" />
+    <result column="cd_name" jdbcType="VARCHAR" property="cdName" />
+    <result column="cd_spell" jdbcType="VARCHAR" property="cdSpell" />
+    <result column="cd_category" jdbcType="VARCHAR" property="cdCategory" />
+    <result column="cd_price" jdbcType="DOUBLE" property="cdPrice" />
+    <result column="cd_cost" jdbcType="DOUBLE" property="cdCost" />
+    <result column="cd_inventory" jdbcType="INTEGER" property="cdInventory" />
+    <result column="cd_unit" jdbcType="VARCHAR" property="cdUnit" />
+    <result column="cd_total" jdbcType="INTEGER" property="cdTotal" />
+    <result column="cd_maturity" jdbcType="TIMESTAMP" property="cdMaturity" />
+    <result column="cd_member" jdbcType="DOUBLE" property="cdMember" />
+    <result column="cd_pack" jdbcType="VARCHAR" property="cdPack" />
+    <result column="cd_supplier" jdbcType="VARCHAR" property="cdSupplier" />
+    <result column="cd_floor" jdbcType="INTEGER" property="cdFloor" />
+    <result column="cd_number" jdbcType="VARCHAR" property="cdNumber" />
+    <result column="cd_created_time" jdbcType="TIMESTAMP" property="cdCreatedTime" />
+    <result column="cd_updated_time" jdbcType="TIMESTAMP" property="cdUpdatedTime" />
+    <result column="cd_updated_by" jdbcType="INTEGER" property="cdUpdatedBy" />
+    <result column="cd_created_by" jdbcType="INTEGER" property="cdCreatedBy" />
+    <result column="is_cd" jdbcType="BIT" property="isCd" />
+  </resultMap>
+  <!-- 
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="BaseResultCommodityMap">
+    <result column="cd_remark" jdbcType="LONGVARCHAR" property="cdRemark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cd_id, cd_code, cd_name, cd_spell, cd_category, cd_price, cd_cost, cd_inventory, 
+    cd_unit, cd_total, cd_maturity, cd_member, cd_pack, cd_supplier, cd_floor, cd_number, 
+    cd_created_time, cd_updated_time, cd_updated_by, cd_created_by, is_cd
+  </sql>
+  <sql id="Blob_Column_List">
+    cd_remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from commodity
+    where cd_id = #{cdId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from commodity
+    where cd_id = #{cdId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="andy.model.Commodity">
+    insert into commodity (cd_id, cd_code, cd_name, 
+      cd_spell, cd_category, cd_price, 
+      cd_cost, cd_inventory, cd_unit, 
+      cd_total, cd_maturity, cd_member, 
+      cd_pack, cd_supplier, cd_floor, 
+      cd_number, cd_created_time, cd_updated_time, 
+      cd_updated_by, cd_created_by, is_cd, 
+      cd_remark)
+    values (#{cdId,jdbcType=INTEGER}, #{cdCode,jdbcType=VARCHAR}, #{cdName,jdbcType=VARCHAR}, 
+      #{cdSpell,jdbcType=VARCHAR}, #{cdCategory,jdbcType=VARCHAR}, #{cdPrice,jdbcType=DOUBLE}, 
+      #{cdCost,jdbcType=DOUBLE}, #{cdInventory,jdbcType=INTEGER}, #{cdUnit,jdbcType=VARCHAR}, 
+      #{cdTotal,jdbcType=INTEGER}, #{cdMaturity,jdbcType=TIMESTAMP}, #{cdMember,jdbcType=DOUBLE}, 
+      #{cdPack,jdbcType=VARCHAR}, #{cdSupplier,jdbcType=VARCHAR}, #{cdFloor,jdbcType=INTEGER}, 
+      #{cdNumber,jdbcType=VARCHAR}, #{cdCreatedTime,jdbcType=TIMESTAMP}, #{cdUpdatedTime,jdbcType=TIMESTAMP}, 
+      #{cdUpdatedBy,jdbcType=INTEGER}, #{cdCreatedBy,jdbcType=INTEGER}, #{isCd,jdbcType=BIT}, 
+      #{cdRemark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="BaseResultCommodityMap">
+    insert into commodity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cdId != null">
+        cd_id,
+      </if>
+      <if test="cdCode != null">
+        cd_code,
+      </if>
+      <if test="cdName != null">
+        cd_name,
+      </if>
+      <if test="cdSpell != null">
+        cd_spell,
+      </if>
+      <if test="cdCategory != null">
+        cd_category,
+      </if>
+      <if test="cdPrice != null">
+        cd_price,
+      </if>
+      <if test="cdCost != null">
+        cd_cost,
+      </if>
+      <if test="cdInventory != null">
+        cd_inventory,
+      </if>
+      <if test="cdUnit != null">
+        cd_unit,
+      </if>
+      <if test="cdTotal != null">
+        cd_total,
+      </if>
+      <if test="cdMaturity != null">
+        cd_maturity,
+      </if>
+      <if test="cdMember != null">
+        cd_member,
+      </if>
+      <if test="cdPack != null">
+        cd_pack,
+      </if>
+      <if test="cdSupplier != null">
+        cd_supplier,
+      </if>
+      <if test="cdFloor != null">
+        cd_floor,
+      </if>
+      <if test="cdNumber != null">
+        cd_number,
+      </if>
+      <if test="cdCreatedTime != null">
+        cd_created_time,
+      </if>
+      <if test="cdUpdatedTime != null">
+        cd_updated_time,
+      </if>
+      <if test="cdUpdatedBy != null">
+        cd_updated_by,
+      </if>
+      <if test="cdCreatedBy != null">
+        cd_created_by,
+      </if>
+      <if test="isCd != null">
+        is_cd,
+      </if>
+      <if test="cdRemark != null">
+        cd_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cdId != null">
+        #{cdId,jdbcType=INTEGER},
+      </if>
+      <if test="cdCode != null">
+        #{cdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cdName != null">
+        #{cdName,jdbcType=VARCHAR},
+      </if>
+      <if test="cdSpell != null">
+        #{cdSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="cdCategory != null">
+        #{cdCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="cdPrice != null">
+        #{cdPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="cdCost != null">
+        #{cdCost,jdbcType=DOUBLE},
+      </if>
+      <if test="cdInventory != null">
+        #{cdInventory,jdbcType=INTEGER},
+      </if>
+      <if test="cdUnit != null">
+        #{cdUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="cdTotal != null">
+        #{cdTotal,jdbcType=INTEGER},
+      </if>
+      <if test="cdMaturity != null">
+        #{cdMaturity,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdMember != null">
+        #{cdMember,jdbcType=DOUBLE},
+      </if>
+      <if test="cdPack != null">
+        #{cdPack,jdbcType=VARCHAR},
+      </if>
+      <if test="cdSupplier != null">
+        #{cdSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="cdFloor != null">
+        #{cdFloor,jdbcType=INTEGER},
+      </if>
+      <if test="cdNumber != null">
+        #{cdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cdCreatedTime != null">
+        #{cdCreatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdUpdatedTime != null">
+        #{cdUpdatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdUpdatedBy != null">
+        #{cdUpdatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="cdCreatedBy != null">
+        #{cdCreatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="isCd != null">
+        #{isCd,jdbcType=BIT},
+      </if>
+      <if test="cdRemark != null">
+        #{cdRemark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="BaseResultCommodityMap">
+    update commodity
+    <set>
+      <if test="cdCode != null">
+        cd_code = #{cdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cdName != null">
+        cd_name = #{cdName,jdbcType=VARCHAR},
+      </if>
+      <if test="cdSpell != null">
+        cd_spell = #{cdSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="cdCategory != null">
+        cd_category = #{cdCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="cdPrice != null">
+        cd_price = #{cdPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="cdCost != null">
+        cd_cost = #{cdCost,jdbcType=DOUBLE},
+      </if>
+      <if test="cdInventory != null">
+        cd_inventory = #{cdInventory,jdbcType=INTEGER},
+      </if>
+      <if test="cdUnit != null">
+        cd_unit = #{cdUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="cdTotal != null">
+        cd_total = #{cdTotal,jdbcType=INTEGER},
+      </if>
+      <if test="cdMaturity != null">
+        cd_maturity = #{cdMaturity,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdMember != null">
+        cd_member = #{cdMember,jdbcType=DOUBLE},
+      </if>
+      <if test="cdPack != null">
+        cd_pack = #{cdPack,jdbcType=VARCHAR},
+      </if>
+      <if test="cdSupplier != null">
+        cd_supplier = #{cdSupplier,jdbcType=VARCHAR},
+      </if>
+      <if test="cdFloor != null">
+        cd_floor = #{cdFloor,jdbcType=INTEGER},
+      </if>
+      <if test="cdNumber != null">
+        cd_number = #{cdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cdCreatedTime != null">
+        cd_created_time = #{cdCreatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdUpdatedTime != null">
+        cd_updated_time = #{cdUpdatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdUpdatedBy != null">
+        cd_updated_by = #{cdUpdatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="cdCreatedBy != null">
+        cd_created_by = #{cdCreatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="isCd != null">
+        is_cd = #{isCd,jdbcType=BIT},
+      </if>
+      <if test="cdRemark != null">
+        cd_remark = #{cdRemark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where cd_id = #{cdId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="BaseResultCommodityMap">
+    update commodity
+    set cd_code = #{cdCode,jdbcType=VARCHAR},
+      cd_name = #{cdName,jdbcType=VARCHAR},
+      cd_spell = #{cdSpell,jdbcType=VARCHAR},
+      cd_category = #{cdCategory,jdbcType=VARCHAR},
+      cd_price = #{cdPrice,jdbcType=DOUBLE},
+      cd_cost = #{cdCost,jdbcType=DOUBLE},
+      cd_inventory = #{cdInventory,jdbcType=INTEGER},
+      cd_unit = #{cdUnit,jdbcType=VARCHAR},
+      cd_total = #{cdTotal,jdbcType=INTEGER},
+      cd_maturity = #{cdMaturity,jdbcType=TIMESTAMP},
+      cd_member = #{cdMember,jdbcType=DOUBLE},
+      cd_pack = #{cdPack,jdbcType=VARCHAR},
+      cd_supplier = #{cdSupplier,jdbcType=VARCHAR},
+      cd_floor = #{cdFloor,jdbcType=INTEGER},
+      cd_number = #{cdNumber,jdbcType=VARCHAR},
+      cd_created_time = #{cdCreatedTime,jdbcType=TIMESTAMP},
+      cd_updated_time = #{cdUpdatedTime,jdbcType=TIMESTAMP},
+      cd_updated_by = #{cdUpdatedBy,jdbcType=INTEGER},
+      cd_created_by = #{cdCreatedBy,jdbcType=INTEGER},
+      is_cd = #{isCd,jdbcType=BIT},
+      cd_remark = #{cdRemark,jdbcType=LONGVARCHAR}
+    where cd_id = #{cdId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="BaseResultCommodityMap">
+    update commodity
+    set cd_code = #{cdCode,jdbcType=VARCHAR},
+      cd_name = #{cdName,jdbcType=VARCHAR},
+      cd_spell = #{cdSpell,jdbcType=VARCHAR},
+      cd_category = #{cdCategory,jdbcType=VARCHAR},
+      cd_price = #{cdPrice,jdbcType=DOUBLE},
+      cd_cost = #{cdCost,jdbcType=DOUBLE},
+      cd_inventory = #{cdInventory,jdbcType=INTEGER},
+      cd_unit = #{cdUnit,jdbcType=VARCHAR},
+      cd_total = #{cdTotal,jdbcType=INTEGER},
+      cd_maturity = #{cdMaturity,jdbcType=TIMESTAMP},
+      cd_member = #{cdMember,jdbcType=DOUBLE},
+      cd_pack = #{cdPack,jdbcType=VARCHAR},
+      cd_supplier = #{cdSupplier,jdbcType=VARCHAR},
+      cd_floor = #{cdFloor,jdbcType=INTEGER},
+      cd_number = #{cdNumber,jdbcType=VARCHAR},
+      cd_created_time = #{cdCreatedTime,jdbcType=TIMESTAMP},
+      cd_updated_time = #{cdUpdatedTime,jdbcType=TIMESTAMP},
+      cd_updated_by = #{cdUpdatedBy,jdbcType=INTEGER},
+      cd_created_by = #{cdCreatedBy,jdbcType=INTEGER},
+      is_cd = #{isCd,jdbcType=BIT}
+    where cd_id = #{cdId,jdbcType=INTEGER}
+  </update>
+   -->
+</mapper>

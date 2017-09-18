@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vem.dao.UnattendedMapper">
+  <resultMap id="BaseResultUnattendedMap" type="com.vem.bean.Unattended">
+    <id column="una_id" jdbcType="INTEGER" property="unaId" />
+    <result column="una_name" jdbcType="VARCHAR" property="unaName" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="si_id" jdbcType="INTEGER" property="siId" />
+    <result column="cd_id" jdbcType="INTEGER" property="cdId" />
+    <result column="una_created_time" jdbcType="TIMESTAMP" property="unaCreatedTime" />
+    <result column="una_updated_time" jdbcType="TIMESTAMP" property="unaUpdatedTime" />
+    <result column="una_updated_by" jdbcType="INTEGER" property="unaUpdatedBy" />
+    <result column="una_created_by" jdbcType="INTEGER" property="unaCreatedBy" />
+    <result column="is_una" jdbcType="BIT" property="isUna" />
+  </resultMap>
+  <!-- 
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="andy.model.UnattendedWithBLOBs">
+    <result column="una_site" jdbcType="LONGVARCHAR" property="unaSite" />
+    <result column="una_remark" jdbcType="LONGVARCHAR" property="unaRemark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    una_id, una_name, user_id, si_id, cd_id, una_created_time, una_updated_time, una_updated_by, 
+    una_created_by, is_una
+  </sql>
+  <sql id="Blob_Column_List">
+    una_site, una_remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from unattended
+    where una_id = #{unaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from unattended
+    where una_id = #{unaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="BaseResultUnattendedMap">
+    insert into unattended (una_id, una_name, user_id, 
+      si_id, cd_id, una_created_time, 
+      una_updated_time, una_updated_by, una_created_by, 
+      is_una, una_site, una_remark
+      )
+    values (#{unaId,jdbcType=INTEGER}, #{unaName,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{siId,jdbcType=INTEGER}, #{cdId,jdbcType=INTEGER}, #{unaCreatedTime,jdbcType=TIMESTAMP}, 
+      #{unaUpdatedTime,jdbcType=TIMESTAMP}, #{unaUpdatedBy,jdbcType=INTEGER}, #{unaCreatedBy,jdbcType=INTEGER}, 
+      #{isUna,jdbcType=BIT}, #{unaSite,jdbcType=LONGVARCHAR}, #{unaRemark,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="BaseResultUnattendedMap">
+    insert into unattended
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="unaId != null">
+        una_id,
+      </if>
+      <if test="unaName != null">
+        una_name,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="siId != null">
+        si_id,
+      </if>
+      <if test="cdId != null">
+        cd_id,
+      </if>
+      <if test="unaCreatedTime != null">
+        una_created_time,
+      </if>
+      <if test="unaUpdatedTime != null">
+        una_updated_time,
+      </if>
+      <if test="unaUpdatedBy != null">
+        una_updated_by,
+      </if>
+      <if test="unaCreatedBy != null">
+        una_created_by,
+      </if>
+      <if test="isUna != null">
+        is_una,
+      </if>
+      <if test="unaSite != null">
+        una_site,
+      </if>
+      <if test="unaRemark != null">
+        una_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="unaId != null">
+        #{unaId,jdbcType=INTEGER},
+      </if>
+      <if test="unaName != null">
+        #{unaName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="siId != null">
+        #{siId,jdbcType=INTEGER},
+      </if>
+      <if test="cdId != null">
+        #{cdId,jdbcType=INTEGER},
+      </if>
+      <if test="unaCreatedTime != null">
+        #{unaCreatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unaUpdatedTime != null">
+        #{unaUpdatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unaUpdatedBy != null">
+        #{unaUpdatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="unaCreatedBy != null">
+        #{unaCreatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="isUna != null">
+        #{isUna,jdbcType=BIT},
+      </if>
+      <if test="unaSite != null">
+        #{unaSite,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="unaRemark != null">
+        #{unaRemark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="BaseResultUnattendedMap">
+    update unattended
+    <set>
+      <if test="unaName != null">
+        una_name = #{unaName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="siId != null">
+        si_id = #{siId,jdbcType=INTEGER},
+      </if>
+      <if test="cdId != null">
+        cd_id = #{cdId,jdbcType=INTEGER},
+      </if>
+      <if test="unaCreatedTime != null">
+        una_created_time = #{unaCreatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unaUpdatedTime != null">
+        una_updated_time = #{unaUpdatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unaUpdatedBy != null">
+        una_updated_by = #{unaUpdatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="unaCreatedBy != null">
+        una_created_by = #{unaCreatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="isUna != null">
+        is_una = #{isUna,jdbcType=BIT},
+      </if>
+      <if test="unaSite != null">
+        una_site = #{unaSite,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="unaRemark != null">
+        una_remark = #{unaRemark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where una_id = #{unaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="BaseResultUnattendedMap">
+    update unattended
+    set una_name = #{unaName,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      si_id = #{siId,jdbcType=INTEGER},
+      cd_id = #{cdId,jdbcType=INTEGER},
+      una_created_time = #{unaCreatedTime,jdbcType=TIMESTAMP},
+      una_updated_time = #{unaUpdatedTime,jdbcType=TIMESTAMP},
+      una_updated_by = #{unaUpdatedBy,jdbcType=INTEGER},
+      una_created_by = #{unaCreatedBy,jdbcType=INTEGER},
+      is_una = #{isUna,jdbcType=BIT},
+      una_site = #{unaSite,jdbcType=LONGVARCHAR},
+      una_remark = #{unaRemark,jdbcType=LONGVARCHAR}
+    where una_id = #{unaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="BaseResultUnattendedMap">
+    update unattended
+    set una_name = #{unaName,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      si_id = #{siId,jdbcType=INTEGER},
+      cd_id = #{cdId,jdbcType=INTEGER},
+      una_created_time = #{unaCreatedTime,jdbcType=TIMESTAMP},
+      una_updated_time = #{unaUpdatedTime,jdbcType=TIMESTAMP},
+      una_updated_by = #{unaUpdatedBy,jdbcType=INTEGER},
+      una_created_by = #{unaCreatedBy,jdbcType=INTEGER},
+      is_una = #{isUna,jdbcType=BIT}
+    where una_id = #{unaId,jdbcType=INTEGER}
+  </update>
+   -->
+</mapper>

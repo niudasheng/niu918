@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vem.dao.SoldInvoicesMapper">
+  <resultMap id="BaseResultSoldInvoicesMap" type="com.vem.bean.SoldInvoices">
+    <id column="si_id" jdbcType="INTEGER" property="siId" />
+    <result column="si_number" jdbcType="VARCHAR" property="siNumber" />
+    <result column="si_date" jdbcType="TIMESTAMP" property="siDate" />
+    <result column="si_total" jdbcType="INTEGER" property="siTotal" />
+    <result column="si_sum" jdbcType="DOUBLE" property="siSum" />
+    <result column="si_return" jdbcType="DOUBLE" property="siReturn" />
+    <result column="si_created_time" jdbcType="TIMESTAMP" property="siCreatedTime" />
+    <result column="si_updated_time" jdbcType="TIMESTAMP" property="siUpdatedTime" />
+    <result column="si_updated_by" jdbcType="INTEGER" property="siUpdatedBy" />
+    <result column="si_created_by" jdbcType="INTEGER" property="siCreatedBy" />
+    <result column="is_si" jdbcType="BIT" property="isSi" />
+  </resultMap>
+  
+  <!-- 
+  <sql id="Base_Column_List">
+    si_id, si_number, si_date, si_total, si_sum, si_return, si_created_time, si_updated_time, 
+    si_updated_by, si_created_by, is_si
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sold_invoices
+    where si_id = #{siId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sold_invoices
+    where si_id = #{siId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="andy.model.SoldInvoices">
+    insert into sold_invoices (si_id, si_number, si_date, 
+      si_total, si_sum, si_return, 
+      si_created_time, si_updated_time, si_updated_by, 
+      si_created_by, is_si)
+    values (#{siId,jdbcType=INTEGER}, #{siNumber,jdbcType=VARCHAR}, #{siDate,jdbcType=TIMESTAMP}, 
+      #{siTotal,jdbcType=INTEGER}, #{siSum,jdbcType=DOUBLE}, #{siReturn,jdbcType=DOUBLE}, 
+      #{siCreatedTime,jdbcType=TIMESTAMP}, #{siUpdatedTime,jdbcType=TIMESTAMP}, #{siUpdatedBy,jdbcType=INTEGER}, 
+      #{siCreatedBy,jdbcType=INTEGER}, #{isSi,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="BaseResultSoldInvoicesMap">
+    insert into sold_invoices
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="siId != null">
+        si_id,
+      </if>
+      <if test="siNumber != null">
+        si_number,
+      </if>
+      <if test="siDate != null">
+        si_date,
+      </if>
+      <if test="siTotal != null">
+        si_total,
+      </if>
+      <if test="siSum != null">
+        si_sum,
+      </if>
+      <if test="siReturn != null">
+        si_return,
+      </if>
+      <if test="siCreatedTime != null">
+        si_created_time,
+      </if>
+      <if test="siUpdatedTime != null">
+        si_updated_time,
+      </if>
+      <if test="siUpdatedBy != null">
+        si_updated_by,
+      </if>
+      <if test="siCreatedBy != null">
+        si_created_by,
+      </if>
+      <if test="isSi != null">
+        is_si,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="siId != null">
+        #{siId,jdbcType=INTEGER},
+      </if>
+      <if test="siNumber != null">
+        #{siNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="siDate != null">
+        #{siDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="siTotal != null">
+        #{siTotal,jdbcType=INTEGER},
+      </if>
+      <if test="siSum != null">
+        #{siSum,jdbcType=DOUBLE},
+      </if>
+      <if test="siReturn != null">
+        #{siReturn,jdbcType=DOUBLE},
+      </if>
+      <if test="siCreatedTime != null">
+        #{siCreatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="siUpdatedTime != null">
+        #{siUpdatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="siUpdatedBy != null">
+        #{siUpdatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="siCreatedBy != null">
+        #{siCreatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="isSi != null">
+        #{isSi,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="BaseResultSoldInvoicesMap">
+    update sold_invoices
+    <set>
+      <if test="siNumber != null">
+        si_number = #{siNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="siDate != null">
+        si_date = #{siDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="siTotal != null">
+        si_total = #{siTotal,jdbcType=INTEGER},
+      </if>
+      <if test="siSum != null">
+        si_sum = #{siSum,jdbcType=DOUBLE},
+      </if>
+      <if test="siReturn != null">
+        si_return = #{siReturn,jdbcType=DOUBLE},
+      </if>
+      <if test="siCreatedTime != null">
+        si_created_time = #{siCreatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="siUpdatedTime != null">
+        si_updated_time = #{siUpdatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="siUpdatedBy != null">
+        si_updated_by = #{siUpdatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="siCreatedBy != null">
+        si_created_by = #{siCreatedBy,jdbcType=INTEGER},
+      </if>
+      <if test="isSi != null">
+        is_si = #{isSi,jdbcType=BIT},
+      </if>
+    </set>
+    where si_id = #{siId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="BaseResultSoldInvoicesMap">
+    update sold_invoices
+    set si_number = #{siNumber,jdbcType=VARCHAR},
+      si_date = #{siDate,jdbcType=TIMESTAMP},
+      si_total = #{siTotal,jdbcType=INTEGER},
+      si_sum = #{siSum,jdbcType=DOUBLE},
+      si_return = #{siReturn,jdbcType=DOUBLE},
+      si_created_time = #{siCreatedTime,jdbcType=TIMESTAMP},
+      si_updated_time = #{siUpdatedTime,jdbcType=TIMESTAMP},
+      si_updated_by = #{siUpdatedBy,jdbcType=INTEGER},
+      si_created_by = #{siCreatedBy,jdbcType=INTEGER},
+      is_si = #{isSi,jdbcType=BIT}
+    where si_id = #{siId,jdbcType=INTEGER}
+  </update>
+   -->
+</mapper>

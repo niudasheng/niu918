@@ -1,0 +1,274 @@
+@CHARSET "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: medium;
+  font-family: "Arial";
+}
+
+a:link, a:visited, a:active, a:hover {
+  text-decoration: none;
+}
+
+.body {
+  width: 1280px;
+  height: 660px;
+  margin: auto;
+  border-color: #FFFFFF;
+}
+
+.left {
+  width: 550px;
+  float: left;
+}
+
+.left img {
+  width: 180px;
+  height: 90px;
+  margin-left: 170px;
+  margin-top: 266px;
+}
+
+.name_css img, .password_css img {
+  margin-top: 10px;
+}
+
+.exam_web {
+  width: 380px;
+  margin-left: 170px;
+  margin-top: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #2E4358;
+  float: left;
+}
+
+.right_css {
+  float: left;
+  width: 730px;
+}
+
+.welcome_login {
+  font-size: 24px;
+  color: #2E4358;
+  margin-left: 160px;
+  margin-top: 72px;
+}
+
+.login_box {
+  width: 400px;
+  height: 290px;
+  border-radius: 4px;
+  padding-top: 30px;
+  margin-top: 20px;
+  margin-left: 160px;
+  background-color: #2E4358;
+  text-align: center;
+}
+
+textarea {
+  outline: medium;
+}
+
+.head_label {
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  color: #2E4358;
+}
+
+.head_label a {
+  color: #2E4358;
+}
+
+input {
+  outline: medium;
+}
+
+.body {
+  width: 1280px;
+  margin: auto;
+}
+
+.head_label_one a {
+  color: #FFFFFF;
+}
+
+.middle_create {
+  width: 1238px;
+  height: 578px;
+  color: #0A0A0A;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  border: 1px solid #9D9D9D;
+}
+
+.middle_title a {
+  color: #0A0A0A;
+}
+
+.middle_title {
+  top: -25px;
+  color: #5E5E5E;
+  font-size: 12px;
+  position: relative;
+}
+
+.head_label_one .online {
+  color: #FFFFFF;
+  font-size: 24px;
+  margin-top: 31px;
+  margin-left: 300px;
+  display: inline-block;
+}
+
+.head_right {
+  float: right;
+  width: 400px;
+}
+
+.language {
+  float: right;
+  height: 16px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-family: 黑体;
+  margin: 20px 20px 0 0;
+}
+
+.clear_right {
+  clear: right;
+}
+
+.create input {
+  border-radius: 3px;
+  border: 1px solid #2E4358;
+}
+
+.create .answer_p {
+  width: 439px;
+  height: 20px;
+}
+
+.logo {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #FFFFFF;
+  float: right;
+}
+
+.logo .logout {
+  cursor: pointer;
+  font-weight: normal;
+  margin-right: 20px;
+}
+
+.logo .strongName {
+  font-weight: normal;
+  margin-right: 30px;
+}
+
+.logo .head_right_img {
+  margin-right: 10px;
+  position: relative;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.site_info {
+  font-family: "Arial";
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #2E4358;
+  clear: left;
+}
+
+.head_label_one {
+  height: 80px;
+  background-color: #2E4358;
+  background-repeat: no-repeat;
+  background-position: 20px 20px;
+  background-image: url('../../images/LOGO_Web_40x240.png');
+}
+
+.name_css {
+  float: left;
+  width: 300px;
+  height: 40px;
+  border-radius: 3px;
+  margin: 35px 10px 0px 50px;
+  background-color: #FFFFFF;
+}
+
+input {
+  float: right;
+  border: none;
+  width: 240px;
+  height: 40px;
+  font-size: 14px;
+  color: #9D9D9D;
+  border-radius: 3px;
+}
+
+.password_css {
+  float: left;
+  width: 300px;
+  height: 40px;
+  border-radius: 3px;
+  margin: 20px 10px 20px 50px;
+  background-color: #FFFFFF;
+}
+
+.login_button {
+  clear: left;
+  width: 300px;
+  height: 40px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  background-color: #FE9901;
+  font-size: 25px;
+  line-height: 40px;
+  color: #FFF;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.rm_css {
+  margin-left: 50px;
+  font-size: 14px;
+  text-align: left;
+  width: 125px;
+  float: left;
+  color: #FFFFFF;
+  cursor: pointer;
+  line-height: 14px;
+  height: 14px;
+}
+
+.rm_css img {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  margin-top: 2px;
+  float: left;
+}
+
+.forgot_password {
+  margin-right: 50px;
+  font-size: 14px;
+  width: 120px;
+  color: #FFFFFF;
+  float: right;
+  text-align: right;
+}
+
+.line {
+  clear: left;
+  padding-top: 160px;
+  border-bottom: 1px #2E4358 solid;
+}
